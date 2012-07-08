@@ -43,15 +43,19 @@
  * A Context represents the state information that is accessed and manipulated
  * by the execution of a Command or a Chain
  */
-interface ehough_chaingang_api_Context
+class ehough_chaingang_impl_StandardContext implements ehough_chaingang_api_Context
 {
+    private $_map = array();
 
     /**
      * Removes all mappings from this map.
      *
      * @return void
      */
-    function clear();
+    public final function clear()
+    {
+        $this->_map = array();
+    }
 
     /**
      * Returns true if this map contains a mapping for the specified key.
@@ -60,7 +64,10 @@ interface ehough_chaingang_api_Context
      *
      * @return bool True if this map contains a mapping for the specified key, false otherwise.
      */
-    function containsKey($key);
+    public final function containsKey($key)
+    {
+        return array_key_exists($key, $this->_map);
+    }
 
     /**
      * Returns true if this map maps one or more keys to the specified value.
@@ -69,7 +76,10 @@ interface ehough_chaingang_api_Context
      *
      * @return bool True if this map maps one or more keys to the specified value.
      */
-    function containsValue($value);
+    public final function containsValue($value)
+    {
+        return array_search($value, $this->_map) !== false;
+    }
 
     /**
      * Returns the value to which this map maps the specified key.
@@ -84,14 +94,25 @@ interface ehough_chaingang_api_Context
      * @return mixed The value to which this map maps the specified key, or null if the
      *               map contains no mapping for this key.
      */
-    function get($key);
+    public final function get($key)
+    {
+        if (isset($this->_map[$key])) {
+
+            return $this->_map[$key];
+        }
+
+        return null;
+    }
 
     /**
      * Returns true if this map contains no key-value mappings.
      *
      * @return bool True if this map contains no key-value mappings.
      */
-    function isEmpty();
+    public final function isEmpty()
+    {
+        return $this->size() === 0;
+    }
 
     /**
      * Associates the specified value with the specified key in this map.
@@ -107,7 +128,14 @@ interface ehough_chaingang_api_Context
      *               the map previously associated null with the specified key, if
      *               the implementation supports null values.
      */
-    function put($key, $value);
+    public final function put($key, $value)
+    {
+        $previous = $this->get($key);
+
+        $this->_map[$key] = $value;
+
+        return $previous;
+    }
 
     /**
      * Copies all of the mappings from the specified map to this map.
@@ -119,7 +147,18 @@ interface ehough_chaingang_api_Context
      *
      * @return void
      */
-    function putAll(array $values);
+    public final function putAll(array $values)
+    {
+        if (! is_array($values)) {
+
+            return;
+        }
+
+        foreach ($values as $key => $value) {
+
+            $this->put($key, $value);
+        }
+    }
 
     /**
      * Removes the mapping for this key from this map if it is present.
@@ -128,12 +167,25 @@ interface ehough_chaingang_api_Context
      *
      * @return mixed Previous value associated with specified key, or null if there was no mapping for key.
      */
-    function remove($key);
+    public final function remove($key)
+    {
+        $previous = $this->get($key);
+
+        if (isset($this->_map[$key])) {
+
+            unset($this->_map[$key]);
+        }
+
+        return $previous;
+    }
 
     /**
      * Returns the number of key-value mappings in this map.
      *
      * @return int The number of key-value mappings in this map.
      */
-    function size();
+    public final function size()
+    {
+        return count($this->_map);
+    }
 }

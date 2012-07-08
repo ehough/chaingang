@@ -51,21 +51,22 @@
  * a Command is expected. This makes it easy to assemble workflows in a hierarchical
  * manner by combining subchains into an overall processing chain.
  */
-interface ehough_chaingang_api_Chain
+interface ehough_chaingang_api_Chain extends ehough_chaingang_api_Command
 {
-
     /**
+     * Add a command to this chain.
+     *
      * Add a Command to the list of Commands that will be called in turn when this Chain's
      * execute() method is called. Once execute() has been called at least once, it is no
      * longer possible to add additional Commands; instead, an exception will be thrown.
      *
-     * @param ehough_chaingang_api_Command $command The Command to be added
+     * @param ehough_chaingang_api_Command $command The Command to be added.
      *
      * @return void
      *
      * @throws ehough_chaingang_api_exception_IllegalStateException If this Chain has already
      *                                                              been executed at least once,
-     *                                                              so no further configuration is allowed
+     *                                                              so no further configuration is allowed.
      */
     function addCommand(ehough_chaingang_api_Command $command);
 }

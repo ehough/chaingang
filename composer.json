@@ -22,6 +22,7 @@
 
     "require-dev": {
         
-	    "ehough/pulsar": "1.0.2"
+	    "ehough/pulsar": "1.*",
+        "mockery/mockery": ">=0.7.2"
     }
 }

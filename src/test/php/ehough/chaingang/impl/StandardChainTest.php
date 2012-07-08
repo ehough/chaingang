@@ -19,9 +19,36 @@
  *
  */
 
-/**
- * Illegal state exception.
- */
-class ehough_chaingang_api_exception_IllegalStateException extends RuntimeException
+use \Mockery as m;
+
+final class ehough_chaingang_impl_StandardChainTest extends PHPUnit_Framework_TestCase
 {
+    private $_sut;
+
+    public function setUp()
+    {
+        parent::setUp();
+
+        $this->_sut = new ehough_chaingang_impl_StandardChain();
+    }
+
+    public function testCommandCanHandle()
+    {
+        $context = m::mock('ehough_chaingang_api_Context');
+        $command = m::mock('ehough_chaingang_api_Command');
+
+        $command->shouldReceive('execute')->with($context)->once()->andReturn(true);
+
+        $this->_sut->addCommand($command);
+
+        $result = $this->_sut->execute($context);
+
+        $this->assertTrue($result);
+    }
+
+    public function tearDown()
+    {
+        m::close();
+    }
+
 }
