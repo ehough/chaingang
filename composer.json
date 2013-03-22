@@ -1,7 +1,7 @@
 {
     "name": "ehough/chaingang",
 
-    "description": "Chain of Responsibility pattern in PHP.",
+    "description": "Chain-of-Responsibility/Chain-of-Command pattern in PHP.",
 
     "homepage": "https://github.com/ehough/chaingang",
 
@@ -17,7 +17,7 @@
 
     "require": {
 
-        "php": ">=5.1.0"
+        "php": ">=5.2.0"
     },
 
     "require-dev": {
