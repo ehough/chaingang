@@ -9,8 +9,6 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 
-use Mockery as m;
-
 final class ehough_chaingang_impl_StandardChainTest extends PHPUnit_Framework_TestCase
 {
     private $_sut;
@@ -24,8 +22,8 @@ final class ehough_chaingang_impl_StandardChainTest extends PHPUnit_Framework_Te
 
     public function testCommandCanHandle()
     {
-        $context = m::mock('ehough_chaingang_api_Context');
-        $command = m::mock('ehough_chaingang_api_Command');
+        $context = Mockery::mock('ehough_chaingang_api_Context');
+        $command = Mockery::mock('ehough_chaingang_api_Command');
 
         $command->shouldReceive('execute')->with($context)->once()->andReturn(true);
 
@@ -38,7 +36,7 @@ final class ehough_chaingang_impl_StandardChainTest extends PHPUnit_Framework_Te
 
     public function tearDown()
     {
-        m::close();
+        Mockery::close();
     }
 
 }

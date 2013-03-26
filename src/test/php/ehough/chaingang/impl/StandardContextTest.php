@@ -9,8 +9,6 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 
-use Mockery as m;
-
 final class ehough_chaingang_impl_StandardContextTest extends PHPUnit_Framework_TestCase
 {
     /**
@@ -77,7 +75,7 @@ final class ehough_chaingang_impl_StandardContextTest extends PHPUnit_Framework_
 
     public function tearDown()
     {
-        m::close();
+        Mockery::close();
     }
 
 }
