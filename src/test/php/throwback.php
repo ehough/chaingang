@@ -6,6 +6,6 @@ __throwback::$config = array(
     'autoload'     => dirname(__FILE__) . '/../../main/php',
     'dependencies' => array(
 
-        'mockery/mockery' => 'https://github.com/padraic/mockery.git'
+        'mockery/mockery', 'https://github.com/padraic/mockery.git', 'src/main/php'
     )
 );
