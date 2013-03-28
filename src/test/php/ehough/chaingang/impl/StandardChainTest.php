@@ -22,8 +22,8 @@ final class ehough_chaingang_impl_StandardChainTest extends PHPUnit_Framework_Te
 
     public function testCommandCanHandle()
     {
-        $context = Mockery::mock('ehough_chaingang_api_Context');
-        $command = Mockery::mock('ehough_chaingang_api_Command');
+        $context = ehough_mockery_Mockery::mock('ehough_chaingang_api_Context');
+        $command = ehough_mockery_Mockery::mock('ehough_chaingang_api_Command');
 
         $command->shouldReceive('execute')->with($context)->once()->andReturn(true);
 
@@ -36,7 +36,7 @@ final class ehough_chaingang_impl_StandardChainTest extends PHPUnit_Framework_Te
 
     public function tearDown()
     {
-        Mockery::close();
+        ehough_mockery_Mockery::close();
     }
 
 }

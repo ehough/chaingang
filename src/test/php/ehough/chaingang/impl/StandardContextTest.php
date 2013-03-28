@@ -75,7 +75,7 @@ final class ehough_chaingang_impl_StandardContextTest extends PHPUnit_Framework_
 
     public function tearDown()
     {
-        Mockery::close();
+        ehough_mockery_Mockery::close();
     }
 
 }
