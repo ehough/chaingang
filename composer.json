@@ -15,7 +15,8 @@
         "php": ">=5.2.0"
     },
     "require-dev": {
-        "ehough/mockery": "~1.0.0"
+        "ehough/mockery": "~0.8",
+        "phpunit/phpunit": "3.7.*"
     },
     "autoload": {
         "psr-0": {
