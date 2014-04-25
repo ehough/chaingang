@@ -1,4 +1,4 @@
-# chaingang [![Build Status](https://secure.travis-ci.org/ehough/chaingang.png)](http://travis-ci.org/ehough/chaingang)
+# chaingang [![Build Status](https://secure.travis-ci.org/ehough/chaingang.png)](http://travis-ci.org/ehough/chaingang) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/ehough/chaingang/badges/quality-score.png?s=95cea2b96fbdbbe74b53f99c2b37bc2ff71efd30)](https://scrutinizer-ci.com/g/ehough/chaingang/)
 
 [Chain-of-Responsibility/Chain-of-Command pattern](http://en.wikipedia.org/wiki/Chain-of-responsibility_pattern) for PHP 5.2+
 
